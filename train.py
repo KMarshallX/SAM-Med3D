@@ -286,6 +286,7 @@ class BaseTrainer:
                                                                gt3D,
                                                                low_res_masks,
                                                                points=[points_input, labels_input])
+            gt3D = gt3D.float()
             loss = self.seg_loss(prev_masks, gt3D)
             return_loss += loss
         return prev_masks, return_loss
